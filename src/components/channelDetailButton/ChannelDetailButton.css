@@ -1,0 +1,23 @@
+.channel-detail-button {
+  position: relative;
+  background: #3498db;
+  color: #fff;
+  padding: 10px 50px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.channel-detail-button:hover {
+  background-color: #2980b9;
+}
+.channel-detail-button.disabled {
+  background-color: #175a86;
+  cursor: not-allowed;
+}

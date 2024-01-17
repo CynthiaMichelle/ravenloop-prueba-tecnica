@@ -1,0 +1,62 @@
+.loginForm {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 70px; 
+  border-radius: 10px;
+  border: 2px solid #bcebf5;
+  background-image: url("../../../assets/pngtree-light-blue-background-picture-image_1131725.jpg");
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.title{
+  margin-bottom: 60px;
+  font-size:50px;
+  font-family: sans-serif;
+  color: #4d5856;
+}
+
+.loginForm label {
+  display: block;
+  text-align: left;
+  margin-bottom: 8px;
+  font-family: sans-serif;
+  font-size: 16px;
+  color: #484545;
+}
+
+.loginForm input {
+  width: 100%;
+  color: #000000;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  outline: none;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #726d6d;
+  font-size: 15px;
+  font-family: sans-serif;
+}
+
+.loginForm button {
+  width: 100%;
+  padding: 10px;
+  color: #fff;
+  background: linear-gradient(to right, #3498db, #2980b9);
+  border: none;
+  font-size: 20px;
+  font-family: sans-serif;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, opacity 0.3s ease; 
+}
+
+.loginForm button:hover {
+  color:black;
+  opacity: 0.9;
+  transform: scale(1.05);
+}

@@ -1,0 +1,28 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  max-width: 100%;
+  max-width: 100svw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: linear-gradient(to right, rgb(247, 253, 253), rgb(173, 216, 230));
+
+}
+  
+@media screen and (max-width: 600px) {
+  #root {
+    padding: 5px;
+  }
+}
