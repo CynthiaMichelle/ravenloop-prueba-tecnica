@@ -14,12 +14,10 @@ const VideoCard: React.FC<VideoCardProps> = ({
   const videoUrl = `https://www.youtube.com/watch?v=${id}`;
 
   useEffect(() => {
-    // URL del endpoint a la que deseas hacer la solicitud
     const APIKEY = import.meta.env.VITE_API_KEY;
 
     const apiUrl = `https://youtube.googleapis.com/youtube/v3/videos?part=statistics&id=${id}&key=${APIKEY}`;
 
-    // Realiza la solicitud Fetch al endpoint
     fetch(apiUrl)
       .then((response) => {
         if (!response.ok) {
@@ -28,12 +26,12 @@ const VideoCard: React.FC<VideoCardProps> = ({
         return response.json();
       })
       .then((responseData: VideoListResponse) => {
-        setVideo(responseData); // Almacena la respuesta en el estado local
+        setVideo(responseData);
       })
       .catch((error) => {
         console.error(error);
       });
-  }, []); // El segundo argumento vacío [] indica que este efecto se ejecuta solo una vez al montar el componente
+  }, []);
 
   return (
     <div className="video-card">
@@ -43,7 +41,8 @@ const VideoCard: React.FC<VideoCardProps> = ({
       <div className="video-details">
         <h3>{title}</h3>
         <p>
-          <strong>Visitas:</strong> {formatearNumero(video?.items[0].statistics.viewCount)}
+          <strong>Visitas:</strong>{" "}
+          {formatearNumero(video?.items[0].statistics.viewCount)}
         </p>
         <p>
           <strong>Hash: </strong>

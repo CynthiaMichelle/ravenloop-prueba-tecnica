@@ -9,7 +9,7 @@ import { useState } from "react";
 import { AuthContext, IAuthState, initialState } from "./state/auth.state";
 import { PrivateRoutes } from "./components/privateRoutes/PrivateRoutes";
 import SearchPage from "./pages/searchPage/SearchPage";
-import "./App.css";
+
 
 function App() {
   const [auth, setAuth] = useState<IAuthState>(initialState);

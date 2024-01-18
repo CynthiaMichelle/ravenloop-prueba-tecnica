@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useStateContext } from "../../state/auth.state";
+// Importación de FontAwesomeIcons para mostrar un ícono de cierre de sesión en el componente.
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import "./LogOutButton.css";

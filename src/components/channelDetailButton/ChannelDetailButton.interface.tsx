@@ -1,7 +1,7 @@
 interface ChannelDetailButtonProps {
-    label: string;
-    onClick: () => void;
-    isDisabled?: boolean;
-  }
+  label: string;
+  onClick: () => void;
+  isDisabled?: boolean;
+}
 
-export default ChannelDetailButtonProps
+export default ChannelDetailButtonProps;

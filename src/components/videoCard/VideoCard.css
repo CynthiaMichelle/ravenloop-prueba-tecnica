@@ -1,25 +1,25 @@
 .video-card {
-    display: flex;
-    margin: 10px;
-    padding: 10px;
-    width: 100%;
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+  width: 100%;
+}
+
+.video-thumbnail {
+  width: auto;
+  height: auto;
+  margin-right: 10px;
+}
+
+.video-details {
+  text-align: left;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+@media screen and (max-width: 600px) {
+  .video-card {
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
   }
-  
-  .video-thumbnail {
-    width: auto; 
-    height: auto;
-    margin-right: 10px;
-  }
-  
-  .video-details {
-    text-align: left;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  }
-  
-  @media screen and (max-width: 600px) {
-    .video-card {
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 0;
-    }
-  }
+}

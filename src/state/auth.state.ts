@@ -6,20 +6,20 @@ export type TAuthContext = {
 };
 
 export interface IUser {
-    email: string,
-    password: string
+  email: string;
+  password: string;
 }
 
 export interface IAuthState {
-    isLogged: boolean;
-    user: IUser | null;
+  isLogged: boolean;
+  user: IUser | null;
 }
 
 export const initialState: IAuthState = {
-    isLogged: false,
-    user: null
-}
-
+  isLogged: false,
+  user: null,
+};
+// Contexto de autenticación para compartir el estado de autenticación en toda la aplicación.
 export const AuthContext = createContext<TAuthContext>({
   auth: initialState,
   setAuth: () => {},

@@ -37,20 +37,17 @@ const SearchPage: React.FC = () => {
     // Cuando hay un nuevo resultado de búsqueda, establece el canal seleccionado
     if (searchResult && searchResult.items.length > 0) {
       setSelectedChannelId(searchResult.items[0].id.channelId);
-      
     }
   }, [searchResult]);
 
   const handleSearch = async () => {
     if (query) {
       try {
-        // Realiza la llamada al endpoint con la query actual
         const response = await fetch(
           `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=~${query}&type=channel&key=${APIKEY}`
         );
         const data: SearchResult = await response.json();
 
-        // Actualiza el estado con la respuesta del endpoint
         setSearchResult(data);
         if (data.pageInfo.totalResults === 0) {
           window.alert(

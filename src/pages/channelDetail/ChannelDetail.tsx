@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import VideosList from "../../components/videoList/VideosList";
 import ChannelStatistics from "../../components/channelStatistics/ChannelStatistics";
 import ChannelDetailButton from "../../components/channelDetailButton/ChannelDetailButton";
-import "./ChannelDetail.css";
+
 
 interface PageState {
   activeTab: "videos" | "statistics";

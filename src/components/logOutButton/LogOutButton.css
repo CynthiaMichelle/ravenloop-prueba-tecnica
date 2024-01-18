@@ -1,16 +1,15 @@
 .logout-container {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .logout-icon {
-    font-size: 25px;
-    color: #707b81;
-    cursor: pointer;
-  }
-  
-  .logout-icon:hover { 
-    color: #f9ffff;
-  }
-  
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.logout-icon {
+  font-size: 25px;
+  color: #707b81;
+  cursor: pointer;
+}
+
+.logout-icon:hover {
+  color: #f9ffff;
+}

@@ -43,7 +43,7 @@ const VideosList: React.FC<VideoListProps> = ({ channelId }) => {
       }
 
       const responseData: YoutubeSearchListResponse = await response.json();
-      setVideos(responseData); // Almacena la respuesta en el estado local
+      setVideos(responseData);
       setNextPageToken(responseData.nextPageToken);
       setPrevPageToken(responseData.prevPageToken);
     } catch (error) {
@@ -52,6 +52,7 @@ const VideosList: React.FC<VideoListProps> = ({ channelId }) => {
   };
 
   useEffect(() => {
+    // TODO: Refactorizar llamadas a la API en un servicio especifico
     const fetchData = async () => {
       try {
         const apiVideosUrl = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&order=date&channelId=${channelId}&maxResults=${maxResults}&key=${APIKEY}`;
@@ -63,14 +64,13 @@ const VideosList: React.FC<VideoListProps> = ({ channelId }) => {
         }
 
         const responseData: YoutubeSearchListResponse = await response.json();
-        setVideos(responseData); // Almacena la respuesta en el estado local
+        setVideos(responseData);
         setCurrentPage(1);
         setNextPageToken(responseData.nextPageToken);
         setPrevPageToken(responseData.prevPageToken);
 
         const apiStatisticsUrl = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&part=statistics&id=${channelId}&key=${APIKEY}`;
 
-        // Realiza la solicitud Fetch al endpoint
         fetch(apiStatisticsUrl)
           .then((response) => {
             if (!response.ok) {
@@ -79,7 +79,7 @@ const VideosList: React.FC<VideoListProps> = ({ channelId }) => {
             return response.json();
           })
           .then((responseData: ChannelListResponse) => {
-            setStatistics(responseData); // Almacena la respuesta en el estado local
+            setStatistics(responseData);
           })
           .catch((error) => {
             console.error(error);

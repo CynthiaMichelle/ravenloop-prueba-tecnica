@@ -18,9 +18,24 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background: linear-gradient(to right, rgb(247, 253, 253), rgb(173, 216, 230));
-
 }
-  
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(173, 216, 230);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3498db;
+border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #175a86;
+}
 @media screen and (max-width: 600px) {
   #root {
     padding: 5px;

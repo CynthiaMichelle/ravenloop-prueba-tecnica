@@ -35,7 +35,7 @@
   border-radius: 50%;
   text-align: center;
   cursor: pointer;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .Btn i {

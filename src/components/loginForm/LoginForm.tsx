@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { IUser, useStateContext } from "../../state/auth.state";
 import "./LoginForm.css";
 import "boxicons/css/boxicons.min.css";
+// Utilizando Bcrypt para el hash de contraseñas con el objetivo de mejorar la seguridad.
 import bcrypt from "bcryptjs";
 
 const LoginForm = () => {
@@ -19,6 +20,7 @@ const LoginForm = () => {
       window.sessionStorage.getItem("_userCredential");
     if (userString) {
       const user = JSON.parse(userString);
+      // Comprobando las credenciales del CEO para acceder a ciertas funcionalidades.
       const isCeoPassword = bcrypt.compareSync(
         import.meta.env.VITE_PASSWORD_CEO,
         user.password
@@ -41,6 +43,7 @@ const LoginForm = () => {
   const handleCorrectLogin = (user: IUser): void => {
     const hashPassword = bcrypt.hashSync(user.password, 12);
     user.password = hashPassword;
+    // Almacenando las credenciales del usuario en sessionStorage para persistencia de sesión.
     window.sessionStorage.setItem("_userCredential", JSON.stringify(user));
 
     if (auth) {
@@ -51,7 +54,7 @@ const LoginForm = () => {
       navigate("/search");
     }
   };
-
+  // Manejo del formulario: Verificación de credenciales y presentación de mensajes de error.
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (

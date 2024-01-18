@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// Importación de FontAwesomeIcons para mostrar íconos en el componente.
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsers } from "@fortawesome/free-solid-svg-icons";
 import { faVideo } from "@fortawesome/free-solid-svg-icons";
@@ -6,10 +7,7 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faChartBar } from "@fortawesome/free-solid-svg-icons";
 import "./ChannelStatistics.css";
 import BarChartComponent from "../barChart/BarChartComponent";
-import {
-  ChannelListResponse,
-  ChannelStatisticsProps,
-} from "./ChannelStatistics.interface";
+import { ChannelListResponse, ChannelStatisticsProps } from "./ChannelStatistics.interface";
 import { calculateViewsPerVideo, formatearNumero } from "../../utils/utils";
 
 const ChannelStatistics: React.FC<ChannelStatisticsProps> = ({ channelId }) => {
@@ -34,11 +32,9 @@ const ChannelStatistics: React.FC<ChannelStatisticsProps> = ({ channelId }) => {
   };
 
   useEffect(() => {
-    // URL del endpoint a la que deseas hacer la solicitud
     const APIKEY = import.meta.env.VITE_API_KEY;
     const apiUrl = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&part=statistics&id=${channelId}&key=${APIKEY}`;
 
-    // Realiza la solicitud Fetch al endpoint
     fetch(apiUrl)
       .then((response) => {
         if (!response.ok) {
@@ -47,12 +43,12 @@ const ChannelStatistics: React.FC<ChannelStatisticsProps> = ({ channelId }) => {
         return response.json();
       })
       .then((responseData: ChannelListResponse) => {
-        setStatistics(responseData); // Almacena la respuesta en el estado local
+        setStatistics(responseData);
       })
       .catch((error) => {
         console.error(error);
       });
-  }, []); // El segundo argumento vacío [] indica que este efecto se ejecuta solo una vez al montar el componente
+  }, []);
 
   return statistics ? (
     <>

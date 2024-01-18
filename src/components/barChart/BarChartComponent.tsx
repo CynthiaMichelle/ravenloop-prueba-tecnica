@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactEChartsCore from 'echarts-for-react/lib/core';
-import * as echarts from 'echarts/core';
-import { BarChart } from 'echarts/charts';
+import React from "react";
+import ReactEChartsCore from "echarts-for-react/lib/core";
+import * as echarts from "echarts/core";
+import { BarChart } from "echarts/charts";
 import {
   GridComponent,
   LegendComponent,
   TooltipComponent,
   TitleComponent,
-} from 'echarts/components';
-import { CanvasRenderer } from 'echarts/renderers';
+} from "echarts/components";
+import { CanvasRenderer } from "echarts/renderers";
 
 echarts.use([
   TitleComponent,
@@ -29,39 +29,38 @@ const BarChartComponent: React.FC<BarChartProps> = ({ data }) => {
 
   const option = {
     title: {
-      text: 'Visitas Mensuales',
+      text: "Visitas Mensuales",
     },
     tooltip: {
-      trigger: 'axis',
+      trigger: "axis",
       axisPointer: {
-        type: 'shadow',
+        type: "shadow",
       },
     },
     grid: {
-      left: '3%',
-      right: '4%',
-      bottom: '3%',
+      left: "3%",
+      right: "4%",
+      bottom: "3%",
       containLabel: true,
     },
     xAxis: {
-      type: 'category',
+      type: "category",
       data: months,
     },
     yAxis: {
-      type: 'value',
+      type: "value",
       boundaryGap: [0, 0.01],
     },
     series: [
       {
-        type: 'bar',
+        type: "bar",
         data: values,
         itemStyle: {
-          color: '#3498db',
+          color: "#3498db",
         },
       },
     ],
   };
-  
 
   return (
     <div className="container">
@@ -70,7 +69,7 @@ const BarChartComponent: React.FC<BarChartProps> = ({ data }) => {
         option={option}
         notMerge={true}
         lazyUpdate={true}
-        theme={'theme_name'}
+        theme={"theme_name"}
         opts={{}}
       />
     </div>
