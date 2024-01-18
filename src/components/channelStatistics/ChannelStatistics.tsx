@@ -17,6 +17,7 @@ const ChannelStatistics: React.FC<ChannelStatisticsProps> = ({ channelId }) => {
     null
   );
 
+  // Datos dummy para mostrar información de manera grafica ya que los datos reales no es posible obtenerlos sin ser owner de un canal
   const visitasUltimoAño = {
     enero: 683684,
     febrero: 974407,

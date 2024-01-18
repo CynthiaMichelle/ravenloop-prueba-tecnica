@@ -7,13 +7,14 @@ Esta aplicación desarrollada en TypeScript y React permite a los usuarios explo
 1. Clona el repositorio:
 
    ```bash
-   git clone https://github.com/CynthiaMichelle/PruebaTecnica.git
+   git clone https://github.com/CynthiaMichelle/ravenloop-prueba-tecnica
+.git
    ```
 
 2. Navega al directorio del proyecto:
 
    ```bash
-   cd ravenloop
+   cd ravenloop-prueba-tecnica
    ```
 
 3. Instala las dependencias:
@@ -21,6 +22,10 @@ Esta aplicación desarrollada en TypeScript y React permite a los usuarios explo
    ```bash
    npm install
    ```
+
+## Configuración de Credenciales
+
+Para poder iniciar sesión, crea un archivo .env con la estructura definida en .env.example, y añade tus credenciales de usuario deseadas y tu API Key de YouTube. Para mas información sobre como crear una API Key habilitada para hacer llamadas a la API de Youtube visitar este [enlace](https://blog.hubspot.com/website/how-to-get-youtube-api-key).
 
 ## Ejecutar la aplicación
 
