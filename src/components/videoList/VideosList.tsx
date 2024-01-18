@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { YoutubeSearchListResponse } from "./VideosList.interface";
 import VideoCard from "../videoCard/VideoCard";
 import PaginationButtons from "../paginationButton/PaginationButtons";
+import { ChannelListResponse } from "../channelStatistics/ChannelStatistics.interface";
 
 interface VideoListProps {
   channelId: string;
@@ -15,6 +16,9 @@ const VideosList: React.FC<VideoListProps> = ({ channelId }) => {
   );
   const [prevPageToken, setPrevPageToken] = useState<string | undefined>(
     undefined
+  );
+  const [statistics, setStatistics] = useState<ChannelListResponse | null>(
+    null
   );
   const APIKEY = import.meta.env.VITE_API_KEY;
   const maxResults = 5;
@@ -50,9 +54,9 @@ const VideosList: React.FC<VideoListProps> = ({ channelId }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const apiUrl = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&order=date&channelId=${channelId}&maxResults=${maxResults}&key=${APIKEY}`;
+        const apiVideosUrl = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&order=date&channelId=${channelId}&maxResults=${maxResults}&key=${APIKEY}`;
 
-        const response = await fetch(apiUrl);
+        const response = await fetch(apiVideosUrl);
 
         if (!response.ok) {
           throw new Error("No se pudo cargar los datos");
@@ -63,13 +67,30 @@ const VideosList: React.FC<VideoListProps> = ({ channelId }) => {
         setCurrentPage(1);
         setNextPageToken(responseData.nextPageToken);
         setPrevPageToken(responseData.prevPageToken);
+
+        const apiStatisticsUrl = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&part=statistics&id=${channelId}&key=${APIKEY}`;
+
+        // Realiza la solicitud Fetch al endpoint
+        fetch(apiStatisticsUrl)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("No se pudo cargar los datos");
+            }
+            return response.json();
+          })
+          .then((responseData: ChannelListResponse) => {
+            setStatistics(responseData); // Almacena la respuesta en el estado local
+          })
+          .catch((error) => {
+            console.error(error);
+          });
       } catch (error) {
         console.error(error);
       }
     };
 
     fetchData();
-  }, [channelId]); // El segundo argumento vacío [] indica que este efecto se ejecuta solo una vez al montar el componente
+  }, [channelId]);
 
   return (
     <>
@@ -90,7 +111,14 @@ const VideosList: React.FC<VideoListProps> = ({ channelId }) => {
             <div>
               <PaginationButtons
                 currentPage={currentPage}
-                totalPages={videos.pageInfo.totalResults}
+                totalPages={
+                  statistics
+                    ? Math.ceil(
+                        parseInt(statistics?.items[0].statistics.videoCount) /
+                          maxResults
+                      )
+                    : 0
+                }
                 onPageChange={handlePageChange}
               />
             </div>
