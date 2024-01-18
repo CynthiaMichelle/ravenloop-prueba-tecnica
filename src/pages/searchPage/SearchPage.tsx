@@ -37,6 +37,7 @@ const SearchPage: React.FC = () => {
     // Cuando hay un nuevo resultado de búsqueda, establece el canal seleccionado
     if (searchResult && searchResult.items.length > 0) {
       setSelectedChannelId(searchResult.items[0].id.channelId);
+      
     }
   }, [searchResult]);
 

@@ -10,12 +10,14 @@ const LogoutButton: React.FC = () => {
   const navigate = useNavigate();
 
   const onClick = () => {
-    setAuth({
-      isLogged: false,
-      user: null,
-    });
-    sessionStorage.removeItem("_userCredential");
-    navigate("/");
+    if (auth) {
+      setAuth({
+        isLogged: false,
+        user: null,
+      });
+      sessionStorage.removeItem("_userCredential");
+      navigate("/");
+    }
   };
 
   return (

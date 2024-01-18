@@ -43,11 +43,13 @@ const LoginForm = () => {
     user.password = hashPassword;
     window.sessionStorage.setItem("_userCredential", JSON.stringify(user));
 
-    setAuth({
-      isLogged: true,
-      user,
-    });
-    navigate("/search");
+    if (auth) {
+      setAuth({
+        isLogged: true,
+        user,
+      });
+      navigate("/search");
+    }
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
