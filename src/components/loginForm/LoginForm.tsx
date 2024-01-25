@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IUser, useStateContext } from "../../state/auth.state";
 import "./LoginForm.css";
-// Utilizando Bcrypt para el hash de contraseñas con el objetivo de mejorar la seguridad.
+// Utilizando Bcrypt para el hash de contraseñas con el objetivo de mejorar la seguridad..
 import bcrypt from "bcryptjs";
 
 const LoginForm = () => {
