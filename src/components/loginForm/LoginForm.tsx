@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IUser, useStateContext } from "../../state/auth.state";
 import "./LoginForm.css";
-import "boxicons/css/boxicons.min.css";
 // Utilizando Bcrypt para el hash de contraseñas con el objetivo de mejorar la seguridad.
 import bcrypt from "bcryptjs";
 
@@ -10,8 +9,8 @@ const LoginForm = () => {
   const { auth, setAuth } = useStateContext();
   const [isLoaded, setLoaded] = useState(false);
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("email@gmail.com");
+  const [password, setPassword] = useState("1234");
 
   const navigate = useNavigate();
 

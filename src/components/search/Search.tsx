@@ -23,7 +23,7 @@ const Search: React.FC<SearchProps> = ({
         placeholder="Buscar"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        onKeyPress={handleKeyPress}
+        onKeyPress={handleKeyPress} //onkeyDown
       ></input>
       <div className="Btn">
         <button className="searchButton" onClick={handleSearch}>
